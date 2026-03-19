@@ -56,7 +56,7 @@
                 };
             }
         ) // {
-            nixosModules.nvsleepify = { config, lib, pkgs, ... }:
+            nixosModules.default = { config, lib, pkgs, ... }:
                 let
                     cfg = config.services.nvsleepify;
                 in {
