@@ -62,6 +62,8 @@
                         systemd.packages = [ pkgs.nvsleepify ];
 
                         systemd.services.nvsleepifyd.wantedBy = [ "multi-user.target" ];
+
+                        services.dbus.packages = [ pkgs.nvsleepify ];
                     };
                 };
 
