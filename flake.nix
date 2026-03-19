@@ -84,8 +84,8 @@
                         services.dbus.packages = [ pkgs.nvsleepify ];
                     };
                 };
+        };
     overlays.default = final: prev: {
         nvsleepify = self.packages.${final.system}.default;
-            };
-        };
+    };
 }
