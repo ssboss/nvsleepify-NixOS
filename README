@@ -8,7 +8,7 @@ This flake ports over Nvsleepify over to NixOS for anyone running NixOS on an As
 
 ## Installation
 Simply import it in your flake and add it to your modules: 
-'''
+```nix
 
 inputs.nvsleepify.url = "https://github.com/ssboss/nvsleepify-NixOS.git"
 
@@ -19,14 +19,14 @@ modules = [
     nvsleepify.nixosModules.nvsleepify
 ]
 
-'''
+```
 
 Then, you can just enable it in either configuration.nix or your flake depending on your setup:
-'''
+```nix
 
 services.nvsleepify.enable = true;
 
-'''
+```
 And then just rebuild your system.
 
 For those who don't have a flake setup, you can simply import the overlay into your configuration.nix and then enable the service as shown above.
