@@ -16,7 +16,9 @@ inputs.nvsleepify.url = "https://github.com/ssboss/nvsleepify-NixOS.git"
 
 modules = [
     # other modules you have
-    nvsleepify.nixosModules.nvsleepify
+    nvsleepify.nixosModules.default{
+        nixpkgs.overlays = [ nvsleepify.overlays.default ];
+    }
 ]
 ```
 Thenm you can enable it in your setup with this:
