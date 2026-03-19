@@ -84,31 +84,8 @@
                         services.dbus.packages = [ pkgs.nvsleepify ];
                     };
                 };
-
-            overlays.default = final: prev: {
-                nvsleepify = self.packages.${final.system}.default;
-            };
-
-            nixosConfigurations.test-vm = nixpkgs.lib.nixosSystem {
-                system = "x86_64-linux";
-                modules = [
-                    self.nixosModules.nvsleepify
-                    ({ ... }: {
-                        services.nvsleepify.enable = true;
-                        nixpkgs.overlays = [ self.overlays.default ];
-                        boot.isContainer = false;
-                        system.stateVersion = "26.05";
-
-                        users.users.root.password = "root";
-
-                        security.sudo.wheelNeedsPassword = false;
-                        users.users.test = {
-                            isNormalUser = true;
-                            extraGroups = [ "wheel" ];
-                            password = "test";
-                        };
-                    })
-                ];
+    overlays.default = final: prev: {
+        nvsleepify = self.packages.${final.system}.default;
             };
         };
 }
